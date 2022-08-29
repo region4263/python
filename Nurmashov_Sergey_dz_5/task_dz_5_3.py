@@ -53,18 +53,20 @@ def win():
 ls_2 = [e.copy() for e in ls_front]
 ls_3 = [e.copy() for e in ls_back]
 while end == 1:
-    print('номера ячеек:      игровое поле:')
-    print(ls[0], '  '.join(ls_2[0]), ls_3[0], sep='         ', end='\n')
-    print(ls[1], '  '.join(ls_2[1]), ls_3[1], sep='         ', end='\n')
-    print(ls[2], '  '.join(ls_2[2]), ls_3[2], sep='         ', end='\n')
+    print('номера ячеек:    игровое поле:')
+    print(ls[0], '  '.join(ls_2[0]), sep='       ', end='\n')
+    print(ls[1], '  '.join(ls_2[1]), sep='       ', end='\n')
+    print(ls[2], '  '.join(ls_2[2]), sep='       ', end='\n')
 
     if win():
-        end = digit(input('Хотите продолжить?\nДА - 1   НЕТ - любая клавиша: '))
+        end = digit(input('Хотите продолжить?\nДА - 1   НЕТ - 0: '))
         if end == 1:
-            print(ls_front, ls_back)
             ls_2 = [e.copy() for e in ls_front]
             ls_3 = [e.copy() for e in ls_back]
-        break
+            stop.clear()
+        else:
+            print('КОНЕЦ ИГРЫ!')
+            break
 
     num, stop = stop_list(input('введи номер ячейки: '), stop)
     x_o, flag = x_o_change(x_o, flag)
