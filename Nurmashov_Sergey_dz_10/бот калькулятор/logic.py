@@ -88,6 +88,7 @@ def get_list_kmplx(expression: str) -> list:
 
 
 def mass_operation_kmplx(arr: list):
+    """ Получаем конечный результат вычислений с комплексными числами"""
     result_ac = []
     result_bd = []
     for i in range(len(arr)):
@@ -104,7 +105,8 @@ def mass_operation_kmplx(arr: list):
     op = arr[arr.index('i') + 2]  # +-/*
     if op in '+-':
         arr = f'{operation(result_ac[0], op, result_ac[1])} + {operation(result_bd[0], op, result_bd[1])}i'
-    elif op == '*':  # (a+bi)*(c+di)=(ac-bd)+(bc+ad)i
+    elif op == '*':
+        # (a+bi)*(c+di)=(ac-bd)+(bc+ad)i
         arr = f'{(operation(result_ac[0], op, result_ac[1])) - (operation(result_bd[0], op, result_bd[1]))} + ' \
               f'{(operation(result_bd[0], op, result_ac[1])) + (operation(result_ac[0], op, result_bd[1]))}i'
     else:
